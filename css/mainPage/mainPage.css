@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.main-header {
+	height: 60px;
+	width: 100%;
+	background-color: #ec4141;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media screen and (max-width: 840px) {
+	.main-header {
+		width: 840px;
+	}
+}
+
+.main-body {
+	width: 100%;
+	height: calc(100vh - 140px);
+	display: flex;
+}
+
+.main-body .main-body-left {
+	height: 100%;
+	width: 200px;
+	border-right: 1px #e0e0e0 solid;
+}
+
+.main-footer {
+	height: 80px;
+	width: 100%;
+	border-top: 1px #e0e0e0 solid;
+}

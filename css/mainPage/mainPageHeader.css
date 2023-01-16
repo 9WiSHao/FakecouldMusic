@@ -1,0 +1,157 @@
+.main-header-left {
+	height: 51%;
+	width: 520px;
+	display: flex;
+}
+
+.main-header-left .logo {
+	margin-left: 20px;
+	margin-right: 50px;
+}
+.main-header-left .logo:hover {
+	cursor: pointer;
+}
+
+.main-header-left .logo img {
+	height: 26px;
+}
+
+.nextAndBack {
+	display: flex;
+}
+
+.nextAndBack div {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	margin-left: 10px;
+	background-color: #d93c3c;
+}
+
+.nextAndBack div img {
+	height: 12px;
+	margin: 8px;
+}
+.nextAndBack div:hover {
+	cursor: pointer;
+}
+
+.search {
+	height: 30px;
+	width: 160px;
+	margin-left: 10px;
+	border-radius: 20px;
+	display: flex;
+	background-color: #e33e3e;
+}
+
+.search-icon img {
+	height: 16px;
+	margin: 7px 3px 0 10px;
+}
+
+.search-input {
+	border: none;
+	outline: none;
+	color: white;
+	height: 30px;
+	width: 120px;
+	background-color: transparent;
+}
+
+:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #fff;
+}
+::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #fff;
+}
+input:-ms-input-placeholder {
+	color: #fff;
+}
+input::-webkit-input-placeholder {
+	color: #fff;
+}
+
+.recognizeByListening {
+	height: 30px;
+	width: 30px;
+	margin-left: 10px;
+	background-color: #e33e3e;
+	border-radius: 50%;
+}
+
+.recognizeByListening:hover {
+	cursor: pointer;
+}
+
+.recognizeByListening img {
+	height: 22px;
+	margin: 4px;
+}
+
+.main-header-right {
+	height: 51%;
+	display: flex;
+}
+
+.main-header-right .user {
+	height: 30px;
+	display: flex;
+
+	margin-right: 10px;
+}
+
+.main-header-right .user .avatar {
+	margin-right: 8px;
+}
+
+.main-header-right .user .avatar:hover {
+	cursor: pointer;
+}
+
+.main-header-right .user .avatar img {
+	height: 30px;
+	border-radius: 50%;
+}
+
+.main-header-right .user .user-name {
+	color: #fad9d9;
+	font-size: 14px;
+	line-height: 28px;
+	margin-right: 8px;
+}
+
+.main-header-right .user .user-name:hover {
+	color: #fff;
+	cursor: pointer;
+}
+
+.main-header-right .user .more {
+	margin-right: 8px;
+	margin-top: 12px;
+	border-top: 5px solid #f8baba;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+}
+
+.main-header-right .user .more:hover {
+	cursor: pointer;
+}
+
+.main-header-right .skin img,
+.main-header-right .setting img,
+.main-header-right .message img {
+	height: 24px;
+	margin-right: 16px;
+	filter: brightness(0.84);
+	margin-top: 4px;
+}
+.main-header-right .skin img:hover,
+.main-header-right .setting img:hover,
+.main-header-right .message img:hover {
+	cursor: pointer;
+	filter: brightness(1);
+}
