@@ -1,0 +1,117 @@
+.main-body-left-seleted {
+	font-weight: bolder;
+	background-color: #f6f6f7;
+}
+
+.main-body-left .findMusic {
+	margin-top: 10px;
+}
+
+.main-body-left .findMusic,
+.main-body-left .podcast,
+.main-body-left .video,
+.main-body-left .subscribe,
+.main-body-left .liveStreaming,
+.main-body-left .privateFM {
+	margin-bottom: 2px;
+	margin-left: 10px;
+	margin-right: 1px;
+	height: 32px;
+	border-radius: 4px;
+	padding-left: 8px;
+	line-height: 30px;
+}
+
+.main-body-left .findMusic:hover,
+.main-body-left .podcast:hover,
+.main-body-left .video:hover,
+.main-body-left .subscribe:hover,
+.main-body-left .liveStreaming:hover,
+.main-body-left .privateFM:hover,
+.main-body-left .loveMusic:hover,
+.main-body-left .localAndDownload:hover,
+.main-body-left .recentlyPlayed:hover {
+	background-color: #f6f6f7;
+	cursor: pointer;
+}
+
+.main-body-left .myMusic {
+	height: 24px;
+	margin-top: 14px;
+	margin-left: 18px;
+	color: #9f9f9f;
+	font-size: smaller;
+}
+
+.main-body-left .loveMusic,
+.main-body-left .localAndDownload,
+.main-body-left .recentlyPlayed {
+	margin-bottom: 2px;
+	margin-left: 10px;
+	margin-right: 1px;
+	height: 34px;
+	border-radius: 4px;
+	padding-left: 8px;
+	line-height: 32px;
+	display: flex;
+	font-size: small;
+}
+
+.main-body-left .loveMusic img,
+.main-body-left .localAndDownload img,
+.main-body-left .recentlyPlayed img {
+	width: 20px;
+	margin-right: 4px;
+}
+
+.main-body-left .loveMusic-icon,
+.main-body-left .recentlyPlayed-icon {
+	padding-top: 5px;
+	margin-right: 6px;
+}
+
+.main-body-left .localAndDownload-icon {
+	margin-right: 6px;
+}
+
+.main-body-left .loveMusic .cardiacMode {
+	margin-left: 20px;
+	height: 24px;
+	width: 40px;
+	margin-top: 4px;
+	border: 1px solid #f0f0f0;
+	border-radius: 24px;
+	line-height: 32px;
+	text-align: center;
+}
+
+.main-body-left .yourSongList {
+	height: 34px;
+	margin-top: 4px;
+	margin-left: 18px;
+	color: #9f9f9f;
+	font-size: smaller;
+	display: flex;
+}
+
+.main-body-left .yourSongList .more {
+	margin-top: 8px;
+	border-top: 5px solid #cccccc;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+}
+
+.main-body-left .yourSongList-text:hover,
+.main-body-left .yourSongList .more:hover,
+.main-body-left .yourSongList .creat:hover {
+	cursor: pointer;
+}
+
+.main-body-left .yourSongList .creat {
+	margin-left: 80px;
+}
+
+.main-body-left .yourSongList img {
+	height: 18px;
+}

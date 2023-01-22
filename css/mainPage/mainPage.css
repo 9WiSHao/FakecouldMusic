@@ -24,6 +24,12 @@
 	display: flex;
 }
 
+@media screen and (max-height: 531px) {
+	.main-body {
+		height: 390px;
+	}
+}
+
 .main-body .main-body-left {
 	height: 100%;
 	width: 200px;
