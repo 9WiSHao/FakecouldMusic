@@ -1,0 +1,368 @@
+.login-border {
+	position: absolute;
+	top: calc(50% - 330px);
+	left: calc(50% - 217.5px);
+	height: 660px;
+	width: 435px;
+	box-shadow: 0 0 10px grey;
+	background-color: #fff;
+}
+
+.login-header {
+	width: 435px;
+	height: 180px;
+	margin-bottom: 60px;
+}
+
+.login-top {
+	height: 60px;
+	width: 435px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.login-top-left {
+	height: 60px;
+	width: 300px;
+	display: flex;
+	align-items: center;
+}
+
+.login-top-left img {
+	height: 60px;
+	width: 60px;
+	cursor: pointer;
+}
+
+.login-qrcode-login-dialog {
+	height: 40px;
+	width: 160px;
+	position: relative;
+}
+
+.login-triangle1,
+.login-qrcode-login-text {
+	position: absolute;
+}
+
+.login-triangle1 {
+	width: 0;
+	height: 0;
+	left: -5px;
+	border-top: 7px solid #999999;
+	border-right: 7px solid transparent;
+	border-left: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+}
+
+.login-qrcode-login-text {
+	height: 30px;
+	width: 140px;
+	border-radius: 4px;
+	background-color: #999999;
+	text-align: center;
+	line-height: 28px;
+	color: white;
+	font-weight: 300;
+}
+
+.login-top-right {
+	height: 50px;
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-top-right img {
+	height: 30px;
+	width: 30px;
+}
+
+.login-top-right img:hover {
+	cursor: pointer;
+	color: #666666;
+	filter: brightness(120%);
+}
+
+.login-logo-wy {
+	height: 120px;
+	width: 435px;
+
+	display: flex;
+	justify-content: center;
+}
+
+.login-logo-wy img {
+	width: 100px;
+	height: 100px;
+}
+
+.login-middle {
+	width: 322px;
+	height: 180px;
+	margin: 0 auto;
+}
+
+.login-input-box {
+	width: 320px;
+	height: 94px;
+	border: solid 1px #d9d9d9;
+	border-radius: 5px;
+}
+
+.login-input-box-up {
+	height: 49px;
+	display: flex;
+}
+
+.login-phone-area {
+	width: 100px;
+	border-right: 1px solid #d9d9d9;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.login-icon-phone img {
+	height: 20px;
+}
+
+.login-p86 {
+	font-size: small;
+	font-weight: 100;
+}
+
+.login-triangle2 {
+	width: 0;
+	height: 0;
+	left: -5px;
+	margin-top: 6px;
+	border-top: 6px solid #999999;
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	cursor: pointer;
+}
+
+.login-phone-number {
+	display: flex;
+	align-items: center;
+}
+
+.login-phone-number input {
+	height: calc(100% - 8px);
+	width: 240px;
+	border: none;
+	outline: none;
+	background: none;
+	margin-left: 8px;
+}
+
+.login-input-box-down {
+	border-top: solid 1px #d9d9d9;
+	height: 50px;
+}
+
+/* 密码登录 */
+.login-password {
+	display: flex;
+}
+
+.login-password img {
+	height: 20px;
+	margin-top: 10px;
+	margin-left: 6px;
+}
+
+.login-password input {
+	height: 46px;
+	width: 284px;
+	margin-left: 10px;
+	border: none;
+	outline: none;
+	background: none;
+}
+/* 验证码登录 */
+.login-sms {
+	display: none;
+}
+
+.login-sms img {
+	height: 20px;
+	margin-top: 12px;
+	margin-left: 6px;
+	margin-right: 10px;
+}
+
+.login-sms input {
+	height: 46px;
+	width: 180px;
+	border: none;
+	outline: none;
+	background: none;
+}
+
+.login-sms .login-getsms {
+	margin-top: 14px;
+	height: 20px;
+	color: #666666;
+	padding-left: 16px;
+	border-left: solid 1px #e3dde3;
+	font-size: small;
+}
+
+.login-sms .login-getsms:hover {
+	cursor: pointer;
+}
+
+.login-getsms-reset {
+	margin-top: 14px;
+	height: 20px;
+	color: #d9d9d9;
+	padding-left: 6px;
+	border-left: solid 1px #e3dde3;
+	font-size: small;
+}
+
+.login-input-others {
+	margin-top: 16px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.login-input-others-left * {
+	display: inline-block;
+}
+
+.login-input-others-right {
+	width: 180px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.login-input-others-left div {
+	color: #666666;
+	font-weight: 300;
+}
+
+.login-forgetpassword,
+.login-alternative {
+	color: #0c73c2;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.login-line1 {
+	width: 0;
+	height: 16px;
+	margin-top: 4px;
+	border-left: 1px solid;
+	color: #dddfe6;
+}
+
+.login-button {
+	width: 320px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.login-loginbutton {
+	width: 100%;
+	height: 50px;
+	border-radius: 6px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: larger;
+	background-color: #ff3a3a;
+}
+
+.login-loginbutton:hover {
+	cursor: pointer;
+	background-color: #e53434;
+}
+
+.login-registered {
+	width: 100%;
+	height: 20px;
+	margin-top: 20px;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.login-registered:hover {
+	cursor: pointer;
+}
+
+.login-others {
+	width: 360px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.login-othericon {
+	display: flex;
+	justify-content: space-around;
+}
+
+.login-othericon img {
+	height: 40px;
+	cursor: pointer;
+}
+
+.login-clause {
+	margin-top: 20px;
+	width: 320px;
+	margin-left: 24px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.login-clause * {
+	font-size: small;
+}
+
+.login-clause a {
+	color: #507daf;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+/* 添加部分（错误输入提示） */
+.login-error {
+	margin-top: 6px;
+	color: red;
+	font-size: small;
+}
+
+.login-success {
+	margin-top: 6px;
+	font-size: small;
+}
+
+.login-hint-create {
+	opacity: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 310px;
+	height: 60px;
+	padding-left: 18px;
+	padding-right: 2px;
+	padding-top: 18px;
+	color: white;
+	position: absolute;
+	border-radius: 10px;
+	top: 40%;
+	left: 12%;
+	z-index: 999;
+}
+
+.login-hint {
+	opacity: 1;
+	transition: all 0.6s;
+}
+
+.login-hint-remove {
+	opacity: 0;
+	transition: all 0.6s;
+}
