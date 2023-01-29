@@ -1,0 +1,29 @@
+.main-body-right-top {
+	display: flex;
+	margin-top: 16px;
+}
+
+.main-body-right-top div {
+	margin-right: 16px;
+	font-weight: lighter;
+
+	height: 40px;
+}
+
+.main-body-right-top div:hover {
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.main-body-right-top-selected {
+	font-size: larger !important;
+	font-weight: bold !important;
+}
+
+.main-body-right-top-selected-line {
+	display: block;
+	width: calc(100% - 12px);
+	height: 4px;
+	border-bottom: 4px solid #ec4141;
+	margin: 0 auto;
+}

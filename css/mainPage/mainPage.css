@@ -36,6 +36,11 @@
 	border-right: 1px #e0e0e0 solid;
 }
 
+.main-body-right {
+	width: calc(100% - 240px);
+	margin: 0 20px;
+}
+
 .main-footer {
 	height: 80px;
 	width: 100%;
