@@ -12,9 +12,9 @@
 	align-items: center;
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 1000px) {
 	.main-header {
-		width: 840px;
+		width: 1000px;
 	}
 }
 
@@ -43,7 +43,11 @@
 
 .main-footer {
 	position: fixed;
+	bottom: 0;
+	z-index: 100;
+	background-color: #fff;
 	height: 80px;
 	width: 100%;
+	min-width: 1000px;
 	border-top: 1px #e0e0e0 solid;
 }

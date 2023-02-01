@@ -1,12 +1,12 @@
 .main-body-right-top {
 	display: flex;
 	margin-top: 16px;
+	min-width: 460px;
 }
 
 .main-body-right-top div {
 	margin-right: 16px;
 	font-weight: lighter;
-
 	height: 40px;
 }
 
