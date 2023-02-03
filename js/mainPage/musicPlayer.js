@@ -15,16 +15,16 @@ export class MusicPlayer {
 
 	#renderHTML = () => {
 		this.mainFooterDOM.children[0].innerHTML = `
-    <div class="player-details">
-        <img src="../../picture/icon/loading_player.png" alt="" />
-    </div>
-    <div class="player-song-message">
-        <div class="player-song-message-up">
-            <div class="player-song-name">loading...</div>
-            <div class="player-love"><img src="../../picture/icon/loveMusic_icon.png" alt="" /></div>
+        <div class="player-details">
+            <img src="../../picture/icon/loading_player.png" alt="" />
         </div>
-        <div class="player-song-artist">loading...</div>
-    </div>
+        <div class="player-song-message">
+            <div class="player-song-message-up">
+                <div class="player-song-name">loading...</div>
+                <div class="player-love"><img src="../../picture/icon/loveMusic_icon.png" alt="" /></div>
+            </div>
+            <div class="player-song-artist">loading...</div>
+        </div>
         `;
 		this.mainFooterDOM.children[1].innerHTML = `
         <audio class="shinuchi" src=""></audio>

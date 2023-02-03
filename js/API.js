@@ -6,4 +6,5 @@ export let API = {
 	homePageJson: '/homepage/block/page',
 	getUrlBySongId: '/song/url',
 	getSongDetail: '/song/detail',
+	search: '/cloudsearch',
 };
