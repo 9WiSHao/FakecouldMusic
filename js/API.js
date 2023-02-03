@@ -3,4 +3,5 @@ export let API = {
 	loginByCellphone: '/login/cellphone',
 	getLoginCaptcha: '/captcha/sent',
 	verifyLoginCaptcha: '/captcha/verify',
+	homePageJson: '/homepage/block/page',
 };

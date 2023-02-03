@@ -1,3 +1,5 @@
+import { API } from '../API.js';
+
 export class Slider {
 	constructor() {
 		// 最先渲染出轮播图html框架和css
@@ -115,7 +117,7 @@ export class Slider {
 	};
 	// 从后端获取数据并渲染
 	#fetchBanners = async () => {
-		let bannerMessages = await fetch('http://162.14.111.196:4000/homepage/block/page');
+		let bannerMessages = await fetch(`${API.url}${API.homePageJson}`);
 		let bannerParse = await bannerMessages.json();
 
 		this.bannerItemDOMs.forEach((item, i) => {
