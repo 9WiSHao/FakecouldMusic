@@ -1,3 +1,5 @@
+import { API } from '../API.js';
+
 export class MusicPlayer {
 	constructor(musicId) {
 		this.#musicId = musicId;
@@ -296,10 +298,10 @@ export class MusicPlayer {
 		try {
 			this.#musicId = musicId;
 
-			let musicmessage1 = await fetch(`http://162.14.111.196:4000/song/url?id=${musicId}`);
+			let musicmessage1 = await fetch(`${API.url}${API.getUrlBySongId}?id=${musicId}`);
 			let musicDate1 = await musicmessage1.json();
 
-			let musicmessage2 = await fetch(`http://162.14.111.196:4000/song/detail?ids=${musicId}`);
+			let musicmessage2 = await fetch(`${API.url}${API.getSongDetail}?ids=${musicId}`);
 			let musicDate2 = await musicmessage2.json();
 			let artist = musicDate2.songs[0].ar[0].name;
 			if (musicDate2.songs[0].ar[1] != undefined) {

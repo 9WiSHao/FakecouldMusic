@@ -4,4 +4,6 @@ export let API = {
 	getLoginCaptcha: '/captcha/sent',
 	verifyLoginCaptcha: '/captcha/verify',
 	homePageJson: '/homepage/block/page',
+	getUrlBySongId: '/song/url',
+	getSongDetail: '/song/detail',
 };
