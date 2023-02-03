@@ -1,4 +1,5 @@
 import { API } from '../API.js';
+import { musicPlayer } from './mainPage.js';
 
 export class Slider {
 	constructor() {
@@ -139,6 +140,7 @@ export class Slider {
 				}
 				// 音乐单曲就点击调用播放器播放
 				if (bannerParse.data.blocks[0].extInfo.banners[i].song != null) {
+					musicPlayer.fetchMusic(bannerParse.data.blocks[0].extInfo.banners[i].song.id);
 				}
 				// 歌单专辑就点击跳转到对应的专辑页面
 				if (bannerParse.data.blocks[0].extInfo.banners[i].targetId != null) {

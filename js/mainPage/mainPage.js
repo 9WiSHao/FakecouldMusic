@@ -1,5 +1,6 @@
 import { Login } from '../login/login.js';
 import { Slider } from './slider.js';
+import { MusicPlayer } from './musicPlayer.js';
 
 // 首页顶部栏的点击变化
 let mainBodyRightTopDOM = document.querySelectorAll('.main-body-right-top div');
@@ -27,3 +28,5 @@ userLonginDOM.addEventListener('click', () => {
 
 // 轮播图
 new Slider();
+
+export let musicPlayer = new MusicPlayer(1454946709);
