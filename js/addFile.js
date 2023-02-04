@@ -1,4 +1,4 @@
-let cssFile = ['./css/mainPage/mainPage.css', './css/mainPage/mainPageHeader.css', './css/mainPage/mainPageLeft.css', './css/mainPage/mainPageFooter.css', './css/mainPage/mainPageRight.css'];
+let cssFile = ['./css/mainPage/mainPage.css', './css/mainPage/mainPageHeader.css', './css/mainPage/mainPageLeft.css', './css/mainPage/mainPageFooter.css'];
 
 let head = document.querySelector('head');
 

@@ -45,12 +45,11 @@ export class Slider {
         </div>
         `
 		);
-		this.headDOM.insertAdjacentHTML(
-			'beforeend',
-			`
-        <link rel="stylesheet" href="../../css/mainPage/slider.css" />
-        `
-		);
+
+		this.sliderCSS = document.createElement('link');
+		this.sliderCSS.rel = 'stylesheet';
+		this.sliderCSS.href = '../../css/mainPage/slider.css';
+		this.headDOM.appendChild(this.sliderCSS);
 	};
 
 	#init = () => {
@@ -103,6 +102,11 @@ export class Slider {
 			this.#showCurrentBanner(this.#currentIndex - 1, this.#currentIndex, this.#currentIndex + 1);
 		}
 	}
+
+	delete = () => {
+		this.mainBodyRightMain.removeChild(this.sliderBoxDOM);
+		this.headDOM.removeChild(this.sliderCSS);
+	};
 
 	#showCurrentBanner = (leftIndex, middleIndex, rightIndex) => {
 		// 设置展示的轮播图所带样式
