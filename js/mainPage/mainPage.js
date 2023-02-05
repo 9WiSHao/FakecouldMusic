@@ -4,8 +4,20 @@ import { MusicPlayer } from './musicPlayer.js';
 import { Search } from '../search/search.js';
 import { MainTable } from './mainTable.js';
 
+// 前进后退按键直接拿浏览器的来用
+document.querySelector('.nextAndBack .back').addEventListener('click', () => {
+	window.history.back();
+});
+document.querySelector('.nextAndBack .next').addEventListener('click', () => {
+	window.history.forward();
+});
+
+document.querySelector('.main-header-left .logo').addEventListener('click', () => {
+	window.location.hash = `#/mainpage`;
+});
+
 // 搜索
-new Search();
+let search = new Search();
 
 // 登录界面
 let userLonginDOM = document.querySelector('.main-header-right .user');
@@ -16,6 +28,8 @@ userLonginDOM.addEventListener('click', () => {
 	}
 });
 
+// 初始化是主页
+window.location.hash = `#/mainpage`;
 let mainPageThings = {
 	// 首页顶部栏的点击变化
 	mainTab: new MainTable(),
@@ -23,9 +37,18 @@ let mainPageThings = {
 	slider: new Slider(),
 };
 
-// mainPageThings.mainTab.delete();
-// mainPageThings.mainTab = null;
-// mainPageThings.slider.delete();
-// mainPageThings.slider = null;
+window.addEventListener('hashchange', () => {
+	if (window.location.hash == '#/search') {
+		for (let key in mainPageThings) {
+			mainPageThings[key].delete();
+			mainPageThings[key] = null;
+		}
+	}
+	if (window.location.hash == '#/mainpage') {
+		search.delete();
+		mainPageThings.mainTab = new MainTable();
+		mainPageThings.slider = new Slider();
+	}
+});
 
 export let musicPlayer = new MusicPlayer(1454946709);

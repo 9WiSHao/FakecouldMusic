@@ -7,4 +7,6 @@ export let API = {
 	getUrlBySongId: '/song/url',
 	getSongDetail: '/song/detail',
 	search: '/cloudsearch',
+	getArtistDetail: '/artist/detail',
+	getArtistFans: '/artist/fans',
 };

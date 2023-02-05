@@ -1,0 +1,210 @@
+.search-message-body {
+	margin: 30px;
+	min-width: 700px;
+}
+
+.search-itself {
+	font-size: larger;
+	font-weight: bold;
+}
+
+.search-may-interested {
+	font-size: small;
+	color: #666666;
+	margin-top: 30px;
+}
+
+.search-may-interested-detail {
+	margin-top: 10px;
+	height: 40px;
+	width: 260px;
+	padding: 12px;
+	display: flex;
+	background-color: #f5f5f5;
+}
+
+.search-may-interested-detail-left {
+	border-radius: 50%;
+	border: #e6e4e4 1px solid;
+	overflow: hidden;
+	margin-right: 10px;
+}
+
+.search-may-interested-detail-left img {
+	width: 40px;
+}
+
+.singer-name {
+	font-size: small;
+}
+
+.singer-detail {
+	font-size: small;
+	color: grey;
+	margin-top: 4px;
+}
+
+.search-message-main {
+	margin-top: 20px;
+}
+
+.search-message-main-table {
+	display: flex;
+}
+
+.search-message-main-table div {
+	margin-right: 30px;
+}
+
+.search-table-selected {
+	font-weight: bold;
+}
+
+.search-line {
+	display: block;
+	width: calc(100% - 8px);
+	height: 4px;
+	border-bottom: 3px solid #ec4141;
+	border-radius: 2px;
+	margin: 0 auto;
+}
+
+.search-message-function {
+	height: 30px;
+}
+
+.get-songs {
+	margin-top: 6px;
+}
+
+.songs-table-header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.songs-table-header div {
+	color: #888888;
+	font-size: small;
+}
+
+.songs-table-header div:nth-child(1) {
+	width: 110px;
+}
+
+.songs-table-header div:nth-child(2) {
+	flex: 4;
+}
+.songs-table-header div:nth-child(3),
+.songs-table-header div:nth-child(4) {
+	flex: 2;
+	padding-left: 8px;
+}
+.songs-table-header div:nth-child(5) {
+	flex: 1;
+	padding-left: 8px;
+}
+.songs-table-header div:nth-child(6) {
+	flex: 1.5;
+}
+
+.get-songs .songs {
+	padding: 10px 0;
+	font-size: small;
+	color: grey;
+}
+
+.get-songs .songs .songs-name,
+.get-songs .songs .songs-singer,
+.get-songs .songs .songs-album,
+.get-songs .songs .songs-lyrics {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.get-songs .songs .songs-name {
+	color: #000000;
+}
+
+.get-songs .songs .songs-number {
+	position: relative;
+}
+
+.get-songs .songs .songs-base-message {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.get-songs .songs .songs-base-message .display1 {
+	width: 90px;
+	padding-left: 20px;
+	display: flex;
+}
+.get-songs .songs .songs-base-message .songs-name {
+	flex: 4;
+}
+.get-songs .songs .songs-base-message .songs-singer,
+.get-songs .songs .songs-base-message .songs-album {
+	flex: 2;
+	padding-left: 8px;
+}
+.get-songs .songs .songs-base-message .songs-time {
+	flex: 1;
+	padding-left: 8px;
+}
+.get-songs .songs .songs-base-message .songs-heat {
+	flex: 1.5;
+}
+
+.get-songs .songs .songs-heat {
+	position: relative;
+}
+
+.get-songs .songs .songs-heat .heat-bar {
+	position: absolute;
+	top: 6px;
+	height: 6px;
+	width: 60px;
+	background-color: #cacaca;
+	z-index: 11;
+	border-radius: 3px;
+}
+
+.get-songs .songs .songs-heat .heat-background {
+	position: absolute;
+	top: 6px;
+	height: 6px;
+	width: 80px;
+	background-color: #e1e1e1;
+	z-index: 10;
+	border-radius: 3px;
+}
+
+.get-songs .songs .songs-lyrics {
+	margin-top: 5px;
+	margin-left: 114px;
+}
+.get-songs .songs .songs-lyrics b {
+	font-weight: normal;
+	color: #507daf;
+}
+
+.get-songs .songs:nth-child(2n) {
+	background-color: #fafafa;
+}
+
+.get-songs .songs:hover {
+	background-color: #e5e5e5;
+}
+
+.get-songs-selected {
+	background-color: #e5e5e5 !important;
+}
+
+.song-trumpet {
+	position: absolute;
+	height: 30px;
+	left: -4px;
+	top: -4px;
+}

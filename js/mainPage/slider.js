@@ -104,8 +104,8 @@ export class Slider {
 	}
 
 	delete = () => {
-		this.mainBodyRightMain.removeChild(this.sliderBoxDOM);
-		this.headDOM.removeChild(this.sliderCSS);
+		this.sliderBoxDOM.remove();
+		this.sliderCSS.remove();
 	};
 
 	#showCurrentBanner = (leftIndex, middleIndex, rightIndex) => {

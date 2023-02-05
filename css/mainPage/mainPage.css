@@ -41,6 +41,12 @@
 	margin: 0 20px;
 }
 
+.main-body-right-main {
+	height: 100%;
+
+	overflow-y: auto;
+}
+
 .main-footer {
 	position: fixed;
 	bottom: 0;
