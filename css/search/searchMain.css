@@ -50,10 +50,20 @@
 
 .search-message-main-table {
 	display: flex;
+	justify-content: space-between;
 }
 
-.search-message-main-table div {
+.search-message-main-table-left {
+	display: flex;
+}
+
+.search-message-main-table-left div {
 	margin-right: 30px;
+}
+
+.search-message-main-table-right {
+	font-size: smaller;
+	color: gray;
 }
 
 .search-table-selected {

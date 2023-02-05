@@ -3,6 +3,7 @@ import { Slider } from './slider.js';
 import { MusicPlayer } from './musicPlayer.js';
 import { Search } from '../search/search.js';
 import { MainTable } from './mainTable.js';
+import { HotSearch } from '../search/hotSearch.js';
 
 // 前进后退按键直接拿浏览器的来用
 document.querySelector('.nextAndBack .back').addEventListener('click', () => {
@@ -17,7 +18,8 @@ document.querySelector('.main-header-left .logo').addEventListener('click', () =
 });
 
 // 搜索
-let search = new Search();
+export let search = new Search();
+new HotSearch();
 
 // 登录界面
 let userLonginDOM = document.querySelector('.main-header-right .user');

@@ -1,0 +1,69 @@
+.hot-search-body {
+	position: absolute;
+	top: 46px;
+	left: -80px;
+	background-color: #fff;
+	height: 520px;
+	width: 320px;
+	padding: 20px 0;
+	border-radius: 4px;
+	z-index: 200;
+	box-shadow: rgb(213, 213, 213) 0 2px 4px;
+	overflow-y: scroll;
+}
+
+.hot-search-title {
+	font-size: small;
+	color: #666666;
+	margin-left: 20px;
+}
+
+.hot-search-main {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+}
+
+.hot-search-main:hover {
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+
+.hot-search-number {
+	margin-right: 26px;
+	font-size: large;
+}
+.hot-search-main:nth-child(-n + 4) .hot-search-number {
+	color: #ff3a3a;
+}
+
+.hot-search-message-top {
+	display: flex;
+}
+
+.hot-search-message-top * {
+	margin-right: 10px;
+}
+
+.hot-search-word {
+	font-size: small;
+}
+.hot-search-main:nth-child(-n + 4) .hot-search-word {
+	font-weight: bolder;
+}
+
+.hot-search-score {
+	font-size: x-small;
+	color: #cccccc;
+}
+
+.hot-search-hot {
+	height: 16px;
+}
+
+.hot-search-message-detail {
+	margin-top: 6px;
+	font-size: x-small;
+	color: #999999;
+}

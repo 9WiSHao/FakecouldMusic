@@ -43,6 +43,7 @@
 	border-radius: 20px;
 	display: flex;
 	background-color: #e33e3e;
+	position: relative;
 }
 
 .search-icon img {

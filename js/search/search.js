@@ -14,7 +14,7 @@ export class Search {
 	#addButtonBefore = () => {
 		this.searchButtonDOM.addEventListener('click', () => {
 			if (this.searchInputDOM.value != '') {
-				this.#fetchSearchData(this.searchInputDOM.value);
+				this.fetchSearchData(this.searchInputDOM.value);
 				if (document.querySelector('search-message-body')) {
 					document.querySelector('search-message-body').remove();
 				}
@@ -22,7 +22,7 @@ export class Search {
 		});
 		this.searchInputDOM.addEventListener('keydown', (e) => {
 			if (e.key == 'Enter' && this.searchInputDOM.value != '') {
-				this.#fetchSearchData(this.searchInputDOM.value);
+				this.fetchSearchData(this.searchInputDOM.value);
 				if (document.querySelector('search-message-body')) {
 					document.querySelector('search-message-body').remove();
 				}
@@ -30,7 +30,7 @@ export class Search {
 		});
 	};
 
-	#fetchSearchData = async (keyWord) => {
+	fetchSearchData = async (keyWord) => {
 		try {
 			// 获取搜索数据（未处理）
 			let message = await fetch(`${API.url}${API.search}?keywords=${keyWord}`);
@@ -61,6 +61,7 @@ export class Search {
         `;
 		// 渲染主要搜索结果
 		let songsCount = SongData.result.songCount;
+		document.querySelector('.search-message-main-table-right').innerText = `共找到${songsCount}首单曲`;
 
 		for (let i = 0; i < SongData.result.songs.length; i++) {
 			let count = `${i + 1}`;
@@ -127,18 +128,21 @@ export class Search {
             </div>
             <div class="search-message-main">
                 <div class="search-message-main-table">
-                    <div class="search-songs search-table-selected">
-                        单曲
-                        <span class="search-line"></span>
+                    <div class="search-message-main-table-left">
+                        <div class="search-songs search-table-selected">
+                            单曲
+                            <span class="search-line"></span>
+                        </div>
+                        <div class="search-singer">歌手</div>
+                        <div>专辑</div>
+                        <div>视频</div>
+                        <div>歌单</div>
+                        <div>歌词</div>
+                        <div>博客</div>
+                        <div>声音</div>
+                        <div>用户</div>
                     </div>
-                    <div class="search-singer">歌手</div>
-                    <div>专辑</div>
-                    <div>视频</div>
-                    <div>歌单</div>
-                    <div>歌词</div>
-                    <div>博客</div>
-                    <div>声音</div>
-                    <div>用户</div>
+                    <div class="search-message-main-table-right">共找到xxx首单曲</div>
                 </div>
                 <div class="search-message-function"></div>
                 <div class="get-songs">

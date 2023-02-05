@@ -9,4 +9,5 @@ export let API = {
 	search: '/cloudsearch',
 	getArtistDetail: '/artist/detail',
 	getArtistFans: '/artist/fans',
+	hotSearch: '/search/hot/detail',
 };
