@@ -1,3 +1,6 @@
+import { Leaderboard } from './leaderboard.js';
+import { Slider } from './slider.js';
+
 export class MainTable {
 	constructor() {
 		this.headDOM = document.querySelector('head');
@@ -29,7 +32,10 @@ export class MainTable {
 		this.headDOM.appendChild(this.mainBodyRightTopCSS);
 	};
 
-	#init = () => {};
+	#init = () => {
+		this.sliderClass = new Slider();
+		this.leaderboardClass = null;
+	};
 
 	#setButton = () => {
 		this.mainBodyRightTopDOM.addEventListener('click', (e) => {
@@ -44,9 +50,25 @@ export class MainTable {
 				}
 			}
 			e.target.classList.add('main-body-right-top-selected');
+			this.#changeTable(e.target.innerText);
 			e.target.insertAdjacentHTML('beforeend', '<span class="main-body-right-top-selected-line"></span>');
+
+			if (e.target.innerText == '个性推荐') {
+				this.sliderClass = new Slider();
+
+				this.leaderboardClass.delete();
+				this.leaderboardClass = null;
+			}
+			if (e.target.innerText == '排行榜') {
+				this.leaderboardClass = new Leaderboard();
+
+				this.sliderClass.delete();
+				this.sliderClass = null;
+			}
 		});
 	};
+
+	#changeTable = (tableName) => {};
 
 	delete = () => {
 		this.mainBodyRightTopDOM.innerHTML = '';

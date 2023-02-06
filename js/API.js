@@ -10,4 +10,6 @@ export let API = {
 	getArtistDetail: '/artist/detail',
 	getArtistFans: '/artist/fans',
 	hotSearch: '/search/hot/detail',
+	getTopList: '/toplist',
+	getListDetail: '/playlist/detail',
 };

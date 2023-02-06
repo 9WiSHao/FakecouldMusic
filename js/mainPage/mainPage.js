@@ -4,6 +4,7 @@ import { MusicPlayer } from './musicPlayer.js';
 import { Search } from '../search/search.js';
 import { MainTable } from './mainTable.js';
 import { HotSearch } from '../search/hotSearch.js';
+import { Leaderboard } from './leaderboard.js';
 
 // 前进后退按键直接拿浏览器的来用
 document.querySelector('.nextAndBack .back').addEventListener('click', () => {
@@ -32,24 +33,19 @@ userLonginDOM.addEventListener('click', () => {
 
 // 初始化是主页
 window.location.hash = `#/mainpage`;
-let mainPageThings = {
-	// 首页顶部栏的点击变化
-	mainTab: new MainTable(),
-	// 轮播图
-	slider: new Slider(),
-};
+
+let mainTab = new MainTable();
 
 window.addEventListener('hashchange', () => {
 	if (window.location.hash == '#/search') {
-		for (let key in mainPageThings) {
-			mainPageThings[key].delete();
-			mainPageThings[key] = null;
-		}
+		mainTab.delete();
+		mainTab = null;
 	}
 	if (window.location.hash == '#/mainpage') {
-		search.delete();
-		mainPageThings.mainTab = new MainTable();
-		mainPageThings.slider = new Slider();
+		if (search.survive()) {
+			search.delete();
+		}
+		mainTab = new MainTable();
 	}
 });
 

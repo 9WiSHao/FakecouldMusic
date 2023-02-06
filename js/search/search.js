@@ -250,4 +250,12 @@ export class Search {
 		this.mainBodyRightMain.innerHTML = '';
 		this.searchMainCSS.remove();
 	};
+
+	survive = () => {
+		if (document.querySelector('.search-message-body') == null) {
+			return false;
+		} else {
+			return true;
+		}
+	};
 }
