@@ -144,7 +144,12 @@ export class Search {
                     </div>
                     <div class="search-message-main-table-right">共找到xxx首单曲</div>
                 </div>
-                <div class="search-message-function"></div>
+                <div class="search-message-function">
+                    <div class="search-message-function-setinlist">
+                        <div class="search-message-function-setinlist-triangle"></div>
+                        播放全部(添加到播放列表)
+                    </div>
+                </div>
                 <div class="get-songs">
                     <div class="songs-table-header">
                         <div></div>
@@ -163,9 +168,11 @@ export class Search {
 
 	#init = () => {
 		this.getSongs = document.querySelector('.search-message-main .get-songs');
+		this.playAllSongs = document.querySelector('.search-message-function-setinlist');
 	};
 
 	#addButtonAfter = () => {
+		// 单击歌曲变色，双击放歌
 		this.getSongs.addEventListener('click', (e) => {
 			let songsDiv = e.target.closest('.songs');
 			if (!songsDiv) {
@@ -182,7 +189,6 @@ export class Search {
 				return;
 			}
 			musicPlayer.fetchMusic(songsDiv.dataset.id);
-
 			// 这一堆children[0]其实就是双击音乐后，要放的音乐名字变红以及出现小喇叭标志，这么写就省得获取元素了
 			let trumpet = document.createElement('img');
 			trumpet.src = './picture/icon/RedTrumpet_icon.png';
@@ -202,6 +208,15 @@ export class Search {
 			songsDiv.children[0].children[0].children[0].innerText = '';
 			songsDiv.children[0].children[0].children[0].insertAdjacentElement('beforeEnd', trumpet);
 			songsDiv.children[0].children[1].style.color = '#ec4141';
+		});
+
+		// 播放全部歌曲功能
+		this.playAllSongs.addEventListener('click', () => {
+			let allSongsList = [];
+			this.getSongs.querySelectorAll('.songs').forEach((songs) => {
+				allSongsList.push(songs.dataset.id);
+			});
+			musicPlayer.setMusicList(allSongsList);
 		});
 	};
 

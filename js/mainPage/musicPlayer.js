@@ -328,6 +328,7 @@ export class MusicPlayer {
 	setMusicList = (musicIdArray) => {
 		this.#musicList = musicIdArray;
 		this.#musicListIndex = 0;
+		this.fetchMusic(musicIdArray[0]);
 	};
 
 	fetchMusic = async (musicId) => {

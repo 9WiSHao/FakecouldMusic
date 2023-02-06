@@ -80,7 +80,35 @@
 }
 
 .search-message-function {
-	height: 30px;
+	height: 50px;
+}
+
+.search-message-function-setinlist {
+	height: 24px;
+	width: 200px;
+	margin-top: 10px;
+	background-color: #e84444;
+	border-radius: 30px;
+	padding: 8px 0;
+	padding-left: 40px;
+	color: #ffffff;
+	position: relative;
+}
+
+.search-message-function-setinlist:hover {
+	cursor: pointer;
+	background-color: #c93535;
+}
+
+.search-message-function-setinlist-triangle {
+	position: absolute;
+	top: 8px;
+	left: 14px;
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-left: 18px solid #fff;
 }
 
 .get-songs {
