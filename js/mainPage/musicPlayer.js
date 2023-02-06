@@ -331,6 +331,10 @@ export class MusicPlayer {
 	};
 
 	fetchMusic = async (musicId) => {
+		// 如果当前播放的歌曲不在列表中，就添加到列表中
+		if (musicId != this.#musicList[this.#musicListIndex]) {
+			this.#musicList.splice(this.#musicListIndex, 0, musicId);
+		}
 		try {
 			this.#musicId = musicId;
 
