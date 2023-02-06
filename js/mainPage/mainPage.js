@@ -45,8 +45,10 @@ window.addEventListener('hashchange', () => {
 		if (search.survive()) {
 			search.delete();
 		}
-		mainTab = new MainTable();
+		if (mainTab == null) {
+			mainTab = new MainTable();
+		}
 	}
 });
 
-export let musicPlayer = new MusicPlayer(1454946709);
+export let musicPlayer = new MusicPlayer(1944660978);

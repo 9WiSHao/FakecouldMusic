@@ -117,10 +117,18 @@ export class MusicPlayer {
 		this.volumeControllerBarPositionDOM.addEventListener('mousedown', this.#setVolume);
 		// 拖动音量圆圈设置音量
 		this.volumeControllerCircleDOM.addEventListener('mousedown', this.#setVolumeByCircle);
+
+		// 播放结束，循环播放
+		this.audioDOM.addEventListener('ended', () => {
+			this.audioDOM.currentTime = 0;
+			this.audioDOM.play();
+		});
 	};
 
 	#musicId = '';
 	#volumeNum = 0;
+	#musicList = [1944660978, 1830411327, 1454946709];
+	#musicListIndex = 0;
 
 	#loadSong = (url, name, artist, cover) => {
 		this.audioDOM.src = url;
@@ -159,6 +167,7 @@ export class MusicPlayer {
 	};
 	// 按钮
 	#setButton = () => {
+		// 开始暂停键
 		this.playAndPauseDOM.addEventListener('click', () => {
 			if (this.audioDOM.paused) {
 				this.audioDOM.play();
@@ -168,7 +177,7 @@ export class MusicPlayer {
 				this.playAndPauseDOM.children[0].src = '../../picture/icon/play_icon.png';
 			}
 		});
-
+		// 音量键
 		this.volumeImgDOM.addEventListener('click', () => {
 			if (this.audioDOM.volume != 0) {
 				this.#volumeNum = this.audioDOM.volume;
@@ -180,6 +189,28 @@ export class MusicPlayer {
 				this.volumeControllerBarDOM.style.height = `${this.#volumeNum * 100}%`;
 				this.volumeImgDOM.src = '../../picture/icon/volume_icon.png';
 			}
+		});
+		// 上一首
+		this.lastSongDOM.addEventListener('click', () => {
+			if (this.#musicList.length == 0) {
+				return;
+			}
+			this.#musicListIndex--;
+			if (this.#musicListIndex == -1) {
+				this.#musicListIndex = this.#musicList.length - 1;
+			}
+			this.fetchMusic(this.#musicList[this.#musicListIndex]);
+		});
+		// 下一首
+		this.nextSongDOM.addEventListener('click', () => {
+			if (this.#musicList.length == 0) {
+				return;
+			}
+			this.#musicListIndex++;
+			if (this.#musicListIndex == this.#musicList.length) {
+				this.#musicListIndex = 0;
+			}
+			this.fetchMusic(this.#musicList[this.#musicListIndex]);
 		});
 	};
 	// 点击改变进度条
@@ -292,6 +323,11 @@ export class MusicPlayer {
 			document.onmouseup = null;
 			this.volumeControllerBarPositionDOM.addEventListener('mousedown', this.#setVolume);
 		};
+	};
+
+	setMusicList = (musicIdArray) => {
+		this.#musicList = musicIdArray;
+		this.#musicListIndex = 0;
 	};
 
 	fetchMusic = async (musicId) => {
