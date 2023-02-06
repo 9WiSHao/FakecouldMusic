@@ -200,6 +200,7 @@ export class MusicPlayer {
 				this.#musicListIndex = this.#musicList.length - 1;
 			}
 			this.fetchMusic(this.#musicList[this.#musicListIndex]);
+			this.playAndPauseDOM.children[0].src = '../../picture/icon/play_icon.png';
 		});
 		// 下一首
 		this.nextSongDOM.addEventListener('click', () => {
@@ -211,6 +212,7 @@ export class MusicPlayer {
 				this.#musicListIndex = 0;
 			}
 			this.fetchMusic(this.#musicList[this.#musicListIndex]);
+			this.playAndPauseDOM.children[0].src = '../../picture/icon/play_icon.png';
 		});
 	};
 	// 点击改变进度条
