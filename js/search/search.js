@@ -32,79 +32,23 @@ export class Search {
 
 	fetchSearchData = async (keyWord) => {
 		try {
-			// 获取搜索数据（未处理）
+			// 获取搜索数据
 			let message = await fetch(`${API.url}${API.search}?keywords=${keyWord}`);
 			let SongData = await message.json();
 
 			window.location.hash = `#/search`;
-			this.#renderSearchData(SongData, keyWord);
+			this.#renderHTML();
+			this.#init();
+			await this.#renderSearchData(SongData, keyWord);
+
+			let songsID = [];
+			for (let i = 0; i < SongData.result.songs.length; i++) {
+				songsID.push(SongData.result.songs[i].id);
+			}
+			this.#renderSongTime(songsID);
 		} catch (err) {
 			console.log(err);
 		}
-	};
-
-	#renderSearchData = async (SongData, keyWord) => {
-		this.#renderHTML();
-		this.#init();
-
-		this.searchItselfDOM = document.querySelector('.search-itself');
-		this.searchItselfDOM.innerText = `搜索 ${keyWord}`;
-		// 顶上的你可能感兴趣的歌手部分
-		let interestedSinger = await this.#getInterestedSinger(SongData.result.songs[0].ar[0].id);
-		this.searchMayInterestedDetail = document.querySelector('.search-may-interested-detail');
-		this.searchMayInterestedDetail.innerHTML = `
-            <div class="search-may-interested-detail-left"><img src="${interestedSinger.singerImg}" alt="" /></div>
-            <div class="search-may-interested-detail-right">
-                <div class="singer-name">歌手: ${interestedSinger.singerName}</div>
-                <div class="singer-detail">粉丝:${interestedSinger.singerFans}, 歌曲:${interestedSinger.singerMusicSize}</div>
-            </div>
-        `;
-		// 渲染主要搜索结果
-		let songsCount = SongData.result.songCount;
-		document.querySelector('.search-message-main-table-right').innerText = `共找到${songsCount}首单曲`;
-
-		for (let i = 0; i < SongData.result.songs.length; i++) {
-			let count = `${i + 1}`;
-			if (count < 10) {
-				count = `0${count}`;
-			}
-			let singerName = SongData.result.songs[i].ar[0].name;
-			if (SongData.result.songs[i].ar.length > 1) {
-				singerName += ' / ' + SongData.result.songs[i].ar[1].name;
-			}
-			let lyrics = '';
-			if (SongData.result.songs[i].lyrics) {
-				lyrics = '歌词：';
-				for (let j = 0; j < SongData.result.songs[i].lyrics.length; j++) {
-					lyrics += ` ${SongData.result.songs[i].lyrics[j]}`;
-				}
-			}
-			let songTime = await this.#getSongTime(SongData.result.songs[i].id);
-			this.getSongs.insertAdjacentHTML(
-				'beforeend',
-				`
-            <div class="songs" data-id="${SongData.result.songs[i].id}">
-                <div class="songs-base-message">
-                    <div class="display1">
-                        <div class="songs-number">${count}</div>
-                        <div class="songs-love"><img src="" alt="" /></div>
-                        <div class="songs-download"><img src="" alt="" /></div>
-                    </div>
-                    <div class="songs-name">${SongData.result.songs[i].name}</div>
-                    <div class="songs-singer">${singerName}</div>
-                    <div class="songs-album">${SongData.result.songs[i].al.name}</div>
-                    <div class="songs-time">${songTime}</div>
-                    <div class="songs-heat">
-                        <div class="heat-bar" style="width: ${(SongData.result.songs[i].pop * 60) / 100}px"></div>
-                        <div class="heat-background"></div>
-                    </div>
-                </div>
-                <div class="songs-lyrics">${lyrics}</div>
-            </div>
-        `
-			);
-		}
-		this.#addButtonAfter();
 	};
 
 	#renderHTML = () => {
@@ -171,6 +115,67 @@ export class Search {
 		this.playAllSongs = document.querySelector('.search-message-function-setinlist');
 	};
 
+	#renderSearchData = async (SongData, keyWord) => {
+		this.searchItselfDOM = document.querySelector('.search-itself');
+		this.searchItselfDOM.innerText = `搜索 ${keyWord}`;
+		// 顶上的你可能感兴趣的歌手部分
+		let interestedSinger = await this.#getInterestedSinger(SongData.result.songs[0].ar[0].id);
+		this.searchMayInterestedDetail = document.querySelector('.search-may-interested-detail');
+		this.searchMayInterestedDetail.innerHTML = `
+            <div class="search-may-interested-detail-left"><img src="${interestedSinger.singerImg}" alt="" /></div>
+            <div class="search-may-interested-detail-right">
+                <div class="singer-name">歌手: ${interestedSinger.singerName}</div>
+                <div class="singer-detail">粉丝:${interestedSinger.singerFans}, 歌曲:${interestedSinger.singerMusicSize}</div>
+            </div>
+        `;
+		// 渲染主要搜索结果
+		let songsCount = SongData.result.songCount;
+		document.querySelector('.search-message-main-table-right').innerText = `共找到${songsCount}首单曲`;
+
+		for (let i = 0; i < SongData.result.songs.length; i++) {
+			let count = `${i + 1}`;
+			if (count < 10) {
+				count = `0${count}`;
+			}
+			let singerName = SongData.result.songs[i].ar[0].name;
+			if (SongData.result.songs[i].ar.length > 1) {
+				singerName += ' / ' + SongData.result.songs[i].ar[1].name;
+			}
+			let lyrics = '';
+			if (SongData.result.songs[i].lyrics) {
+				lyrics = '歌词：';
+				for (let j = 0; j < SongData.result.songs[i].lyrics.length; j++) {
+					lyrics += ` ${SongData.result.songs[i].lyrics[j]}`;
+				}
+			}
+
+			this.getSongs.insertAdjacentHTML(
+				'beforeend',
+				`
+            <div class="songs" data-id="${SongData.result.songs[i].id}">
+                <div class="songs-base-message">
+                    <div class="display1">
+                        <div class="songs-number">${count}</div>
+                        <div class="songs-love"><img src="" alt="" /></div>
+                        <div class="songs-download"><img src="" alt="" /></div>
+                    </div>
+                    <div class="songs-name">${SongData.result.songs[i].name}</div>
+                    <div class="songs-singer">${singerName}</div>
+                    <div class="songs-album">${SongData.result.songs[i].al.name}</div>
+                    <div class="songs-time">loading...</div>
+                    <div class="songs-heat">
+                        <div class="heat-bar" style="width: ${(SongData.result.songs[i].pop * 60) / 100}px"></div>
+                        <div class="heat-background"></div>
+                    </div>
+                </div>
+                <div class="songs-lyrics">${lyrics}</div>
+            </div>
+        `
+			);
+		}
+		this.#addButtonAfter();
+	};
+
 	#addButtonAfter = () => {
 		// 单击歌曲变色，双击放歌
 		this.getSongs.addEventListener('click', (e) => {
@@ -233,11 +238,18 @@ export class Search {
 		return singerMessage;
 	};
 
-	#getSongTime = async (songId) => {
-		let message = await fetch(`${API.url}${API.getUrlBySongId}?id=${songId}`);
-		let Data = await message.json();
-		let songTime = parseInt(Data.data[0].time / 1000);
-		return this.#timeFormat(songTime);
+	#renderSongTime = async (songId) => {
+		let allSongsDOM = document.querySelectorAll('.songs');
+		console.log(allSongsDOM);
+
+		for (let i = 0; i < allSongsDOM.length; i++) {
+			let res = await fetch(`${API.url}${API.getUrlBySongId}?id=${songId[i]}`);
+			let data = await res.json();
+
+			let time = this.#timeFormat(parseInt(data.data[0].time / 1000));
+
+			allSongsDOM[i].querySelector('.songs-time').innerHTML = time;
+		}
 	};
 
 	#timeFormat = (time) => {
