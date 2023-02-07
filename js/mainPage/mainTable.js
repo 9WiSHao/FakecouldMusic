@@ -1,5 +1,6 @@
 import { Leaderboard } from './leaderboard.js';
 import { Slider } from './slider.js';
+import { RecommendedSonglist } from './recommendedSonglist.js';
 
 export class MainTable {
 	constructor() {
@@ -34,6 +35,7 @@ export class MainTable {
 
 	#init = () => {
 		this.sliderClass = new Slider();
+		this.recommendedSonglist = new RecommendedSonglist();
 		this.leaderboardClass = null;
 	};
 
@@ -50,11 +52,12 @@ export class MainTable {
 				}
 			}
 			e.target.classList.add('main-body-right-top-selected');
-			this.#changeTable(e.target.innerText);
+
 			e.target.insertAdjacentHTML('beforeend', '<span class="main-body-right-top-selected-line"></span>');
 
 			if (e.target.innerText == '个性推荐') {
 				this.sliderClass = new Slider();
+				this.recommendedSonglist = new RecommendedSonglist();
 
 				this.leaderboardClass.delete();
 				this.leaderboardClass = null;
@@ -64,11 +67,11 @@ export class MainTable {
 
 				this.sliderClass.delete();
 				this.sliderClass = null;
+				this.recommendedSonglist.delete();
+				this.recommendedSonglist = null;
 			}
 		});
 	};
-
-	#changeTable = (tableName) => {};
 
 	delete = () => {
 		this.mainBodyRightTopDOM.innerHTML = '';

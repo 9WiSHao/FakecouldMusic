@@ -3,6 +3,7 @@ export let API = {
 	loginByCellphone: '/login/cellphone',
 	getLoginCaptcha: '/captcha/sent',
 	verifyLoginCaptcha: '/captcha/verify',
+	banner: '/banner',
 	homePageJson: '/homepage/block/page',
 	getUrlBySongId: '/song/url',
 	getSongDetail: '/song/detail',
@@ -12,4 +13,5 @@ export let API = {
 	hotSearch: '/search/hot/detail',
 	getTopList: '/toplist',
 	getListDetail: '/playlist/detail',
+	recommendedSonglist: '/personalized',
 };
