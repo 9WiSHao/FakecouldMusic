@@ -13,5 +13,6 @@ export let API = {
 	hotSearch: '/search/hot/detail',
 	getTopList: '/toplist',
 	getListDetail: '/playlist/detail',
+	getListSongs: '/playlist/track/all',
 	recommendedSonglist: '/personalized',
 };

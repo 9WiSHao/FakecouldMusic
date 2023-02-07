@@ -1,10 +1,9 @@
 import { Login } from '../login/login.js';
-import { Slider } from './slider.js';
 import { MusicPlayer } from './musicPlayer.js';
 import { Search } from '../search/search.js';
 import { MainTable } from './mainTable.js';
 import { HotSearch } from '../search/hotSearch.js';
-import { Leaderboard } from './leaderboard.js';
+import { SongList } from '../songList/songList.js';
 
 // 前进后退按键直接拿浏览器的来用
 document.querySelector('.nextAndBack .back').addEventListener('click', () => {
@@ -38,15 +37,26 @@ let mainTab = new MainTable();
 
 window.addEventListener('hashchange', () => {
 	if (window.location.hash == '#/search') {
-		mainTab.delete();
-		mainTab = null;
+		if (mainTab != null) {
+			mainTab.delete();
+			mainTab = null;
+		}
 	}
 	if (window.location.hash == '#/mainpage') {
 		if (search.survive()) {
 			search.delete();
 		}
+		if (document.querySelector('.songlist-body')) {
+			document.querySelector('.songlist-body').remove();
+		}
 		if (mainTab == null) {
 			mainTab = new MainTable();
+		}
+	}
+	if (window.location.hash == '#/musiclist') {
+		if (mainTab != null) {
+			mainTab.delete();
+			mainTab = null;
 		}
 	}
 });

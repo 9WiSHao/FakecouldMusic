@@ -196,7 +196,7 @@ export class Search {
 			musicPlayer.fetchMusic(songsDiv.dataset.id);
 			// 这一堆children[0]其实就是双击音乐后，要放的音乐名字变红以及出现小喇叭标志，这么写就省得获取元素了
 			let trumpet = document.createElement('img');
-			trumpet.src = './picture/icon/RedTrumpet_icon.png';
+			trumpet.src = '../../picture/icon/RedTrumpet_icon.png';
 			trumpet.className = 'song-trumpet';
 			this.getSongs.querySelectorAll('.songs').forEach((songs, i) => {
 				songs.children[0].children[1].style.color = 'black';

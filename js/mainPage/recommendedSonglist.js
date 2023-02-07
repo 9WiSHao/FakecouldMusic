@@ -1,4 +1,5 @@
 import { API } from '../API.js';
+import { SongList } from '../songList/songList.js';
 
 export class RecommendedSonglist {
 	constructor() {
@@ -66,7 +67,10 @@ export class RecommendedSonglist {
 			}
 
 			let listId = list.dataset.listid;
-			console.log(listId);
+
+			let sList = new SongList(listId);
+
+			window.location.hash = `#/musiclist`;
 		});
 	};
 
