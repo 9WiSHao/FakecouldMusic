@@ -16,12 +16,12 @@ export class MusicPlayer {
 	#renderHTML = () => {
 		this.mainFooterDOM.children[0].innerHTML = `
         <div class="player-details">
-            <img src="../../picture/icon/loading_player.png" alt="" />
+            <img src="./picture/icon/loading_player.png" alt="" />
         </div>
         <div class="player-song-message">
             <div class="player-song-message-up">
                 <div class="player-song-name">loading...</div>
-                <div class="player-love"><img src="../../picture/icon/loveMusic_icon.png" alt="" /></div>
+                <div class="player-love"><img src="./picture/icon/loveMusic_icon.png" alt="" /></div>
             </div>
             <div class="player-song-artist">loading...</div>
         </div>
@@ -29,10 +29,10 @@ export class MusicPlayer {
 		this.mainFooterDOM.children[1].innerHTML = `
         <audio class="shinuchi" src=""></audio>
         <div class="player-function">
-            <div class="single-loop"><img src="../../picture/icon/oneSongLoop_icon.png" alt="" /></div>
-            <div class="last-song"><img src="../../picture/icon/lastSong_icon.png" alt="" /></div>
-            <div class="playAndPause" title="播放/暂停"><img src="../../picture/icon/play_icon.png" alt="播放" /></div>
-            <div class="next-song"><img src="../../picture/icon/nextSong_icon.png" alt="" /></div>
+            <div class="single-loop"><img src="./picture/icon/oneSongLoop_icon.png" alt="" /></div>
+            <div class="last-song"><img src="./picture/icon/lastSong_icon.png" alt="" /></div>
+            <div class="playAndPause" title="播放/暂停"><img src="./picture/icon/play_icon.png" alt="播放" /></div>
+            <div class="next-song"><img src="./picture/icon/nextSong_icon.png" alt="" /></div>
             <div class="song-lyrics">词</div>
         </div>
         <div class="player-progress">
@@ -50,7 +50,7 @@ export class MusicPlayer {
 		this.mainFooterDOM.children[2].innerHTML = `
         <div class="player-other-function">
             <div class="player-volume">
-                <img src="../../picture/icon/volume_icon.png" alt="" />
+                <img src="./picture/icon/volume_icon.png" alt="" />
                 <div class="volume-controller">
                     <div class="volume-controller-body">
                         <div class="volume-controller-bar-position">
@@ -63,10 +63,10 @@ export class MusicPlayer {
                     <div class="volume-controller-triangle"></div>
                 </div>
             </div>
-            <div class="player-list"><img src="../../picture/icon/playList_icon.png" alt="" /></div>
+            <div class="player-list"><img src="./picture/icon/playList_icon.png" alt="" /></div>
         </div>
         `;
-		this.headDOM.insertAdjacentHTML('beforeEnd', `<link rel="stylesheet" href="../../css/mainPage/musicPlayer.css" />`);
+		this.headDOM.insertAdjacentHTML('beforeEnd', `<link rel="stylesheet" href="./css/mainPage/musicPlayer.css" />`);
 	};
 	// 绑定DOM并设置按钮事件
 	#init = () => {
@@ -171,10 +171,10 @@ export class MusicPlayer {
 		this.playAndPauseDOM.addEventListener('click', () => {
 			if (this.audioDOM.paused) {
 				this.audioDOM.play();
-				this.playAndPauseDOM.children[0].src = '../../picture/icon/pause_icon.png';
+				this.playAndPauseDOM.children[0].src = './picture/icon/pause_icon.png';
 			} else {
 				this.audioDOM.pause();
-				this.playAndPauseDOM.children[0].src = '../../picture/icon/play_icon.png';
+				this.playAndPauseDOM.children[0].src = './picture/icon/play_icon.png';
 			}
 		});
 		// 音量键
@@ -183,11 +183,11 @@ export class MusicPlayer {
 				this.#volumeNum = this.audioDOM.volume;
 				this.audioDOM.volume = 0;
 				this.volumeControllerBarDOM.style.height = 0;
-				this.volumeImgDOM.src = '../../picture/icon/volumeNone_icon.png';
+				this.volumeImgDOM.src = './picture/icon/volumeNone_icon.png';
 			} else {
 				this.audioDOM.volume = this.#volumeNum;
 				this.volumeControllerBarDOM.style.height = `${this.#volumeNum * 100}%`;
-				this.volumeImgDOM.src = '../../picture/icon/volume_icon.png';
+				this.volumeImgDOM.src = './picture/icon/volume_icon.png';
 			}
 		});
 		// 上一首
@@ -200,7 +200,7 @@ export class MusicPlayer {
 				this.#musicListIndex = this.#musicList.length - 1;
 			}
 			this.fetchMusic(this.#musicList[this.#musicListIndex]);
-			this.playAndPauseDOM.children[0].src = '../../picture/icon/play_icon.png';
+			this.playAndPauseDOM.children[0].src = './picture/icon/play_icon.png';
 		});
 		// 下一首
 		this.nextSongDOM.addEventListener('click', () => {
@@ -212,7 +212,7 @@ export class MusicPlayer {
 				this.#musicListIndex = 0;
 			}
 			this.fetchMusic(this.#musicList[this.#musicListIndex]);
-			this.playAndPauseDOM.children[0].src = '../../picture/icon/play_icon.png';
+			this.playAndPauseDOM.children[0].src = './picture/icon/play_icon.png';
 		});
 	};
 	// 点击改变进度条

@@ -18,18 +18,18 @@ export class Login {
             <div class="login-header">
                 <div class="login-top">
                     <div class="login-top-left">
-                        <img src="../../picture/icon/qrcode_login_icon.png" class="login-qrcode" />
+                        <img src="./picture/icon/qrcode_login_icon.png" class="login-qrcode" />
                         <div class="login-qrcode-login-dialog">
                             <div class="login-triangle1"></div>
                             <div class="login-qrcode-login-text">扫码登录更安全</div>
                         </div>
                     </div>
                     <div class="login-top-right">
-                        <img src="../../picture/icon/X_login_icon.png" />
+                        <img src="./picture/icon/X_login_icon.png" />
                     </div>
                 </div>
                 <div class="login-logo-wy">
-                    <img src="../../picture/icon/logowy_login_icon.png" />
+                    <img src="./picture/icon/logowy_login_icon.png" />
                 </div>
             </div>
             <div class="login-middle">
@@ -37,7 +37,7 @@ export class Login {
                     <div class="login-input-box-up">
                         <div class="login-phone-area">
                             <div class="login-icon-phone">
-                                <img src="../../picture/icon/phone_login_icon.png" />
+                                <img src="./picture/icon/phone_login_icon.png" />
                             </div>
                             <div class="login-p86">+86</div>
                             <div class="login-triangle2"></div>
@@ -48,11 +48,11 @@ export class Login {
                     </div>
                     <div class="login-input-box-down">
                         <div class="login-password">
-                            <img src="../../picture/icon/lock_login_icon.png" />
+                            <img src="./picture/icon/lock_login_icon.png" />
                             <input type="text" placeholder="请输入密码" value="" />
                         </div>
                         <div class="login-sms">
-                            <img src="../../picture/icon/password_login_icon.png" alt="" />
+                            <img src="./picture/icon/password_login_icon.png" alt="" />
                             <input type="text" placeholder="请输入验证码" value="" />
                             <div class="login-getsms">获取验证码</div>
                         </div>
@@ -78,10 +78,10 @@ export class Login {
             </div>
             <div class="login-others">
                 <div class="login-othericon">
-                    <img src="../../picture/icon/wechat_login_icon.png" alt="大且丑" />
-                    <img src="../../picture/icon/qq_login_icon.png" alt="南极贱畜" />
-                    <img src="../../picture/icon/weibo_login_icon.png" alt="粪坑" />
-                    <img src="../../picture/icon/wy_login_icon.png" alt="猪场" />
+                    <img src="./picture/icon/wechat_login_icon.png" alt="大且丑" />
+                    <img src="./picture/icon/qq_login_icon.png" alt="南极贱畜" />
+                    <img src="./picture/icon/weibo_login_icon.png" alt="粪坑" />
+                    <img src="./picture/icon/wy_login_icon.png" alt="猪场" />
                 </div>
                 <div class="login-clause">
                     <input type="checkbox" />
@@ -99,7 +99,7 @@ export class Login {
 		this.headDOM.insertAdjacentHTML(
 			'beforeEnd',
 			`
-        <link rel="stylesheet" href="../../css/login/login.css" />
+        <link rel="stylesheet" href="./css/login/login.css" />
             `
 		);
 	};
