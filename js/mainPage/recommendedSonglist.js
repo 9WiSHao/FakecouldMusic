@@ -40,7 +40,7 @@ export class RecommendedSonglist {
                     <img class="recommended-songlist-body-content-item-img" src="${data.result[i].picUrl}" />
                     <div class="recommended-songlist-body-content-item-title">${data.result[i].name}</div>
                     <div class="recommended-songlist-body-content-item-playcount">
-                        <img class="recommended-songlist-body-content-item-playcount-icon" src="../../picture/icon/hollowPlay_icon.png" />
+                        <img class="recommended-songlist-body-content-item-playcount-icon" src="./picture/icon/hollowPlay_icon.png" />
                     ${this.#playCountFormat(data.result[i].playCount)}</div>
                     <div class="recommended-songlist-body-content-item-play"></div>
                 </div>

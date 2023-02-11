@@ -15,14 +15,14 @@ export class SongList {
 		this.mainBodyRightMainDOM.innerHTML = `
         <div class="songlist-body">
             <div class="songlist-header">
-                <div class="songlist-header-left"><img src="../../picture/icon/loading_player.png" alt="" /></div>
+                <div class="songlist-header-left"><img src="./picture/icon/loading_player.png" alt="" /></div>
                 <div class="songlist-header-right">
                     <div class="songlist-title">
                         <div class="songlist-title-icon">歌单</div>
                         <div class="songlist-title-name">Loading...</div>
                     </div>
                     <div class="songlist-creater">
-                        <img src="../../picture/icon/Akkarin.jpg" alt="" />
+                        <img src="./picture/icon/Akkarin.jpg" alt="" />
                         <div class="songlist-creater-name">Loading...</div>
                         <div class="songlist-creater-date">创建</div>
                     </div>
@@ -59,7 +59,7 @@ export class SongList {
 
 		this.songListCSS = document.createElement('link');
 		this.songListCSS.rel = 'stylesheet';
-		this.songListCSS.href = '../../css/songList/songList.css';
+		this.songListCSS.href = './css/songList/songList.css';
 
 		this.headDOM.appendChild(this.songListCSS);
 	};
@@ -182,7 +182,7 @@ export class SongList {
 			musicPlayer.fetchMusic(songsDiv.dataset.id);
 			// 双击音乐后，要放的音乐名字变红以及出现小喇叭标志，这么写就省得获取元素了
 			let trumpet = document.createElement('img');
-			trumpet.src = '../../picture/icon/RedTrumpet_icon.png';
+			trumpet.src = './picture/icon/RedTrumpet_icon.png';
 			trumpet.className = 'song-trumpet';
 			this.songlistSongsDOM.querySelectorAll('.songs').forEach((songs, i) => {
 				songs.querySelector('.songs-name').style.color = 'black';
@@ -242,6 +242,6 @@ export class SongList {
 
 	delete = () => {
 		this.mainBodyRightMainDOM.innerHTML = '';
-        this.songListCSS.remove();
+		this.songListCSS.remove();
 	};
 }

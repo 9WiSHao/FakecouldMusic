@@ -19,14 +19,14 @@ export class Slider {
 		this.bannerItemDOMsLength = 0;
 		// 轮播图未加载出来时，显示的图片（数组，8个）
 		this.banners = [
-			{ imageName: `../../picture/icon/loading_temp.png` },
-			{ imageName: `../../picture/icon/loading_temp.png` },
-			{ imageName: `../../picture/icon/loading_temp.png` },
-			{ imageName: `../../picture/icon/loading_temp.png` },
-			{ imageName: `../../picture/icon/loading_temp.png` },
-			{ imageName: `../../picture/icon/loading_temp.png` },
-			{ imageName: `../../picture/icon/loading_temp.png` },
-			{ imageName: `../../picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
+			{ imageName: `./picture/icon/loading_temp.png` },
 		];
 		// 定时器
 		this.timer = null;
@@ -40,8 +40,8 @@ export class Slider {
 			`
         <div class="slider-box">
             <div class="banner-box"></div>
-            <button class="slider-left-btn"><img src="../../picture/icon/back_icon.png" alt="" /></button>
-            <button class="slider-right-btn"><img src="../../picture/icon/next_icon.png" alt="" /></button>
+            <button class="slider-left-btn"><img src="./picture/icon/back_icon.png" alt="" /></button>
+            <button class="slider-right-btn"><img src="./picture/icon/next_icon.png" alt="" /></button>
             <div class="pagination-box"></div>
         </div>
         `
@@ -49,7 +49,7 @@ export class Slider {
 
 		this.sliderCSS = document.createElement('link');
 		this.sliderCSS.rel = 'stylesheet';
-		this.sliderCSS.href = '../../css/mainPage/slider.css';
+		this.sliderCSS.href = './css/mainPage/slider.css';
 		this.headDOM.appendChild(this.sliderCSS);
 	};
 
