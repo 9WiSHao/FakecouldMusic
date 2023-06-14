@@ -1,4 +1,3 @@
-import { search } from '../mainPage/mainPage.js';
 import { API } from '../API.js';
 
 export class HotSearch {
@@ -64,7 +63,7 @@ export class HotSearch {
 			if (!hotWord) {
 				return;
 			}
-			search.fetchSearchData(hotWord.children[1].children[0].children[0].innerText);
+			window.location.hash = `#/search/${hotWord.children[1].children[0].children[0].innerText}`;
 			this.#delete();
 		});
 

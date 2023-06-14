@@ -68,9 +68,7 @@ export class RecommendedSonglist {
 
 			let listId = list.dataset.listid;
 
-			let sList = new SongList(listId);
-
-			window.location.hash = `#/musiclist`;
+			window.location.hash = `#/musiclist/${listId}`;
 		});
 	};
 

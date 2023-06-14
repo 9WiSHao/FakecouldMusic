@@ -2,41 +2,19 @@ import { API } from '../API.js';
 import { musicPlayer } from '../mainPage/mainPage.js';
 
 export class Search {
-	constructor() {
+	constructor(searchKey) {
 		this.headDOM = document.querySelector('head');
 		this.mainBodyRightMain = document.querySelector('.main-body-right-main');
-		this.searchInputDOM = document.querySelector('.main-header .search-input');
-		this.searchButtonDOM = document.querySelector('.main-header .search img');
 
-		this.#addButtonBefore();
+		this.#fetchSearchData(searchKey);
 	}
 
-	#addButtonBefore = () => {
-		this.searchButtonDOM.addEventListener('click', () => {
-			if (this.searchInputDOM.value != '') {
-				this.fetchSearchData(this.searchInputDOM.value);
-				if (document.querySelector('search-message-body')) {
-					document.querySelector('search-message-body').remove();
-				}
-			}
-		});
-		this.searchInputDOM.addEventListener('keydown', (e) => {
-			if (e.key == 'Enter' && this.searchInputDOM.value != '') {
-				this.fetchSearchData(this.searchInputDOM.value);
-				if (document.querySelector('search-message-body')) {
-					document.querySelector('search-message-body').remove();
-				}
-			}
-		});
-	};
-
-	fetchSearchData = async (keyWord) => {
+	#fetchSearchData = async (keyWord) => {
 		try {
 			// 获取搜索数据
 			let message = await fetch(`${API.url}${API.search}?keywords=${keyWord}`);
 			let SongData = await message.json();
 
-			window.location.hash = `#/search`;
 			this.#renderHTML();
 			this.#init();
 			await this.#renderSearchData(SongData, keyWord);
@@ -276,13 +254,5 @@ export class Search {
 	delete = () => {
 		this.mainBodyRightMain.innerHTML = '';
 		this.searchMainCSS.remove();
-	};
-
-	survive = () => {
-		if (document.querySelector('.search-message-body') == null) {
-			return false;
-		} else {
-			return true;
-		}
 	};
 }

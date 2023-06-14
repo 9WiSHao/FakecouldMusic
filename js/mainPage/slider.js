@@ -149,8 +149,7 @@ export class Slider {
 				}
 				// 歌单专辑就点击跳转到对应的专辑页面
 				if (bannerParse.data.blocks[0].extInfo.banners[i].targetId != null) {
-					new SongList(bannerParse.data.blocks[0].extInfo.banners[i].targetId);
-					window.location.hash = `#/musiclist`;
+					window.location.hash = `#/musiclist/${bannerParse.data.blocks[0].extInfo.banners[i].targetId}`;
 				}
 			});
 		});
