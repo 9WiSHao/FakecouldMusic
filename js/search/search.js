@@ -4,7 +4,7 @@ import { musicPlayer } from '../mainPage/mainPage.js';
 export class Search {
 	constructor(searchKey) {
 		this.headDOM = document.querySelector('head');
-		this.mainBodyRightMain = document.querySelector('.main-body-right-main');
+		this.mainBodyRightDOM = document.querySelector('.main-body-right');
 
 		this.#fetchSearchData(searchKey);
 	}
@@ -35,7 +35,7 @@ export class Search {
 		this.searchMainCSS.href = './css/search/searchMain.css';
 		this.headDOM.appendChild(this.searchMainCSS);
 
-		this.mainBodyRightMain.innerHTML = `
+		this.mainBodyRightDOM.innerHTML = `
         <div class="search-message-body">
             <div class="search-message-top">
                 <div class="search-itself">搜索 loading...</div>
@@ -218,7 +218,6 @@ export class Search {
 
 	#renderSongTime = async (songId) => {
 		let allSongsDOM = document.querySelectorAll('.songs');
-		console.log(allSongsDOM);
 
 		for (let i = 0; i < allSongsDOM.length; i++) {
 			let res = await fetch(`${API.url}${API.getUrlBySongId}?id=${songId[i]}`);
@@ -252,7 +251,9 @@ export class Search {
 	};
 
 	delete = () => {
-		this.mainBodyRightMain.innerHTML = '';
+		let dD = document.querySelector('.search-message-body');
+		dD.innerHTML = '';
+		dD.remove();
 		this.searchMainCSS.remove();
 	};
 }

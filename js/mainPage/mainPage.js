@@ -14,7 +14,7 @@ document.querySelector('.nextAndBack .next').addEventListener('click', () => {
 });
 
 document.querySelector('.main-header-left .logo').addEventListener('click', () => {
-	window.location.hash = `#/mainpage/recommend`;
+	window.location.hash = `#/mainpage`;
 });
 
 // 热搜，这个是一直在主页不会动的，就直接new出来不用动他
@@ -43,43 +43,60 @@ userLonginDOM.addEventListener('click', () => {
 	}
 });
 
+// 存当前页面的变量，顺便把删除包成函数。
+// 选择每次都在case匹配到之后再调用删除，是为了判断二级页面不删。
+// 之前选择的是删除放每次匹配的最前面，这样就没法判断是不是二级页面了，会每次hash变化都全删了
 let currentPage = null;
+function currentDelect() {
+	if (currentPage != null) {
+		currentPage.delete();
+		currentPage = null;
+	}
+}
 // 这玩意来解决第一次打开页面可能调用了两回路由，就出现了俩首页的问题
 let currentHash = '';
+let currentHashPart = '';
 // 初始化是主页
-window.location.hash = `#/mainpage/recommend`;
+window.location.hash = `#/mainpage`;
 
 // 简单的原生js hash路由
 function handleRouting() {
 	let hash = window.location.hash;
 	let hashPart = hash.split('/');
 
-	// 如果 hash 没有改变，直接返回，不做任何操作
+	// 如果 hash 没有改变，直接返回，不做任何操作，解决初次打开生成俩首页组件
 	if (hash === currentHash) {
 		return;
 	}
 
-	if (currentPage != null) {
-		currentPage.delete();
-		currentPage = null;
-	}
-
 	switch (hashPart[1]) {
 		case 'mainpage':
+			if (hashPart[1] == currentHashPart[1]) {
+				break;
+			}
+			currentDelect();
 			currentPage = new MainTable();
 			break;
 
 		case 'search':
+			currentDelect();
 			currentPage = new Search(decodeURI(hashPart[2]));
 			break;
 
 		case 'musiclist':
+			currentDelect();
 			currentPage = new SongList(decodeURI(hashPart[2]));
 			break;
+
+		case 'album':
+			currentDelect();
+			// 专辑居然和歌单不一样，妈的，以后再做
+			window.location.href = `../../404.html?${hashPart[2]}`;
 	}
 
 	// 更新 currentHash
 	currentHash = hash;
+	currentHashPart = hashPart;
 }
 
 // 页面加载时调用一次路由处理函数，解决刷新时首页空白问题
