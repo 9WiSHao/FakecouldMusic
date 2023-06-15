@@ -140,17 +140,24 @@ export class Slider {
 			// 点击事件
 			item.addEventListener('click', () => {
 				// 活动链接就点击跳转到对应的活动页面
-				if (bannerParse.data.blocks[0].extInfo.banners[i].url != null) {
+				if (bannerParse.data.blocks[0].extInfo.banners[i].targetType == 3000) {
 					window.open(bannerParse.data.blocks[0].extInfo.banners[i].url);
+					return;
 				}
 				// 音乐单曲就点击调用播放器播放
-				if (bannerParse.data.blocks[0].extInfo.banners[i].song != null) {
+				if (bannerParse.data.blocks[0].extInfo.banners[i].targetType == 1) {
 					musicPlayer.fetchMusic(bannerParse.data.blocks[0].extInfo.banners[i].song.id);
+					return;
 				}
-				// 歌单专辑就点击跳转到对应的专辑页面
-				if (bannerParse.data.blocks[0].extInfo.banners[i].targetId != null) {
-					new SongList(bannerParse.data.blocks[0].extInfo.banners[i].targetId);
-					window.location.hash = `#/musiclist`;
+				// 歌单就点击跳转到对应的歌单页面
+				if (bannerParse.data.blocks[0].extInfo.banners[i].targetType == 1000) {
+					window.location.hash = `#/musiclist/${bannerParse.data.blocks[0].extInfo.banners[i].targetId}`;
+					return;
+				}
+				// 专辑页面（我才发现专辑和歌单妈的不是一个页面，接口都不一样，妈的，以后有时间再做
+				if (bannerParse.data.blocks[0].extInfo.banners[i].targetType == 10) {
+					window.location.hash = `#/album/${bannerParse.data.blocks[0].extInfo.banners[i].targetId}`;
+					return;
 				}
 			});
 		});
@@ -201,5 +208,11 @@ export class Slider {
 	};
 	#stopTimer = () => {
 		clearInterval(this.timer);
+	};
+
+	delete = () => {
+		// 如果我要把某次new出来的实例的监听器也一块移除，就必须这么写，清空html，不然重新打开这个页面的时候，其实老对象没被销毁，会导致有一样的html元素被绑定了多次一样的东西（太坑了）
+		this.sliderBoxDOM.innerHTML = '';
+		this.sliderBoxDOM.remove();
 	};
 }

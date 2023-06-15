@@ -127,6 +127,8 @@ export class Leaderboard {
 	};
 
 	delete = () => {
+		// 如果我要把某次new出来的实例的监听器也一块移除，就必须这么写，清空html，不然重新打开这个页面的时候，其实老对象没被销毁，会导致有一样的html元素被绑定了多次一样的东西（太坑了）
+		this.leaderboardBodyDOM.innerHTML = '';
 		this.leaderboardBodyDOM.remove();
 	};
 }

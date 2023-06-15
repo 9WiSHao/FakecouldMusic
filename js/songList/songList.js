@@ -4,7 +4,7 @@ import { musicPlayer } from '../mainPage/mainPage.js';
 export class SongList {
 	constructor(listId) {
 		this.headDOM = document.querySelector('head');
-		this.mainBodyRightMainDOM = document.querySelector('.main-body-right-main');
+		this.mainBodyRightDOM = document.querySelector('.main-body-right');
 
 		this.#renderHTML();
 		this.#init();
@@ -12,7 +12,7 @@ export class SongList {
 	}
 
 	#renderHTML = () => {
-		this.mainBodyRightMainDOM.innerHTML = `
+		this.mainBodyRightDOM.innerHTML = `
         <div class="songlist-body">
             <div class="songlist-header">
                 <div class="songlist-header-left"><img src="./picture/icon/loading_player.png" alt="" /></div>
@@ -241,7 +241,9 @@ export class SongList {
 	};
 
 	delete = () => {
-		this.mainBodyRightMainDOM.innerHTML = '';
+		let dD = document.querySelector('.songlist-body');
+		dD.innerHTML = '';
+		dD.remove();
 		this.songListCSS.remove();
 	};
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>404</title>
+		<style>
+			.main {
+				font-size: 40px;
+				font-weight: bolder;
+				padding-bottom: 20px;
+			}
+			.sign {
+				color: grey;
+				padding-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">404 Page Not Found</div>
+		<div class="sign">其实是暂时没做，妈的，等我有时间了肯定做完它，争取这个页面永远用不上</div>
+		<div>本来应该显示的内容如下:</div>
+		<div class="should"></div>
+	</body>
+	<script>
+		const should = document.querySelector('.should');
+		let id = document.location.href.split('?')[1];
+		fetch(`http://162.14.111.196:4000/album?id=${id}`)
+			.then((message) => message.json())
+			.then((message) => {
+				should.innerHTML = JSON.stringify(message);
+			});
+	</script>
+</html>
